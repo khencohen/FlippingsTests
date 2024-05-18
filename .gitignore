@@ -1,0 +1,27 @@
+# Default ignored files
+/shelf/
+/workspace.xml
+# Editor-based HTTP Client requests
+/httpRequests/
+# Datasource local storage ignored files
+/dataSources/
+/dataSources.local.xml
+
+.idea
+*.png
+*.jpg
+
+.DS_Store
+.idea/
+*.pt
+*.pth
+*.npy
+*.pkl
+*.html
+*.pdf
+
+weights_c1c2/*
+weights*
+datasets/*
+data/*
+
