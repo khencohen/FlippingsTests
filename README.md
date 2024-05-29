@@ -40,10 +40,11 @@ python main.py
 If you find this work useful in your research, please consider citing:
 
 ```bibtex
-@article{yourPaperID,
-  title={Your Paper Title},
-  author={Your Name and Co-Authors},
-  journal={Journal Name or Conference},
-  year={Year},
-  doi={YourDOI}
+@misc{cohen2024classifying,
+      title={Classifying Overlapping Gaussian Mixtures in High Dimensions: From Optimal Classifiers to Neural Nets}, 
+      author={Khen Cohen and Noam Levi and Yaron Oz},
+      year={2024},
+      eprint={2405.18427},
+      archivePrefix={arXiv},
+      primaryClass={stat.ML}
 }
