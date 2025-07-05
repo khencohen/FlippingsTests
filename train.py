@@ -161,8 +161,7 @@ def train_c1c2cov(cfg: NNAnalysisParameters, c1c2, show=False):
     accuracy_test = []
 
     avg_test_loss, accuracy = \
-        test_model_c1c2(model, dataloader_test_c1,
-                        dataloader_test_c2, device, loss_fn)
+        test_model_c1c2(model, dataloader_test_c1, dataloader_test_c2, device, loss_fn)
     test_loss.append(avg_test_loss)
     accuracy_test.append(accuracy)
     model.train()

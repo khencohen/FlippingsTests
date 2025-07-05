@@ -203,7 +203,7 @@ def analyze_flip_threshold(cfg: NNAnalysisParameters,
 
         # Save npy file of the results
         create_folder('npy/')
-        np.save(filename, np.array([threshold_list, tot_accuracy_A_c1]))
+        np.save(filename, np.array([threshold_list, np.array(tot_accuracy_A_c1[0])]))
 
 
     if holdidx < 0:

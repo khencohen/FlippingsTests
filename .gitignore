@@ -20,8 +20,10 @@
 *.html
 *.pdf
 
+train_flip_noise.py
+random_matrices.npy
+
 weights_c1c2/*
 weights*
 datasets/*
 data/*
-

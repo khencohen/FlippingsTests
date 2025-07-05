@@ -57,6 +57,14 @@ def get_dataloaders_for_c1c2cov(cfg: NNAnalysisParameters, c1c2):
             dataloader_train_c2, dataloader_test_c2)
 
 
+# def get_random_data(train):
+#     # This function takes
+#     db = datasets.CIFAR10(root='../datasets',
+#                                train=train,
+#                                download=True,
+#                                transform=None)
+#     # Now, run over all the
+
 
 class DataSampler(Dataset):
     def __init__(self, class_number=0, num_batch_samples=5, batch_size=1,
@@ -134,6 +142,9 @@ class DataSampler(Dataset):
                                        download=True,
                                        transform=None)
 
+        # elif self.db_name == 'NOISE':
+        #     db = get_random_data()
+
         # Take only the data of the class we want
         idxs = np.where(np.array(db.targets) == self.class_number)
         db.data = db.data[idxs]
@@ -191,8 +202,17 @@ class DataSampler(Dataset):
         self.cov = eigvec.dot(np.diag(eigval)).dot(eigvec.T)
         self.cov = (self.cov + self.cov.T) / 2  # make it symmetric Just for numeric error!
 
+        # TODO - for the review (22.2.25) --- Just test for the new random eigvectors ---
+        if False:
+            # Decompose the covariance matrix to its eigenvectors and eigenvalues
+            eigval, eigvec = np.linalg.eigh(self.cov)
+            # Load matrices
+            new_eigvec = np.load('random_matrices.npy')[self.class_number]
+            # Compose again the covariance matrix
+            self.cov = new_eigvec.dot(np.diag(eigval)).dot(new_eigvec.T)
+
         # check if the covariance matrix is positive definite
-        if (self.cov.T != self.cov).any():
+        if not np.isclose(self.cov, self.cov.T).all():
             print('covariance matrix is not positive definite:', self.cov)
 
     def __len__(self):
